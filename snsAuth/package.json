@@ -18,7 +18,10 @@
     "express-session": "^1.16.2",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.10.1"
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.10.1",
+    "sequelize-pg-utilities": "^1.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

@@ -10,7 +10,15 @@ const flash = require('connect-flash');
 
 const demoRouter = require('./route/demo/demoPage');
 
+/**
+ * models 의 index.js 임포트
+ *  - index.js에서는 /models에 정의한 각 모델들을 볼러들이고,
+ *  - { User: sequelize1 , Post: sequelize2... } 와 같은 형식으로 객체를 만들어낸다.
+ */
+const {sequelize} = require('../models');
+
 const app = express();
+sequelize.sync();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

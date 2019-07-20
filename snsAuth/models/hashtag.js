@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    sequelize.define(
+    return sequelize.define(
         'hashtag',
         {
             title:{
