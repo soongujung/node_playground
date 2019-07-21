@@ -3,15 +3,28 @@
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
-const db = {};
+const db = new Object();
 
 const sequelize = new Sequelize(
     config.database, config.username, config.password,  config,
 );
 
+var user = require('./user')(sequelize, Sequelize);
+
+console.log('models/index.js :: sequelize >>> ', JSON.stringify(new user(sequelize, Sequelize)));
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.User = require('./user')(sequelize, Sequelize);
+
+console.log(
+    'models/index.js :: user >>> ',
+    JSON.stringify(require('./user')(sequelize, Sequelize))
+);
+
+// db.User = new user(sequelize, Sequelize);
+db.User = user;
+console.log('models/index.js :: db.User >>> ', db.User);
+
 db.Post = require('./post')(sequelize, Sequelize);
 db.Hashtag = require('./hashtag')(sequelize, Sequelize);
 
@@ -38,5 +51,8 @@ db.User.belongsToMany(
         through: 'Follow',
     }
 );
+
+// console.log('db >>> ', db);
+console.log('db.User >>> ', JSON.stringify(db.User));
 
 module.exports = db;

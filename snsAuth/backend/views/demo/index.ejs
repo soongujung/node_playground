@@ -3,6 +3,26 @@
     <title>데모 페이지</title>
 </head>
 <body>
-<h1> INDEX.JS WITH EXPRESS  <%= greeting %></h1>
+    <style>
+        .btn {
+            background-color: #4dabf7;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <h1> INDEX.JS WITH EXPRESS  <%= greeting %></h1>
+    <button id="kakaoLogin"> login </button>
+    <a href="/auth/kakao" class="btn"> 로그인 </a>
+    <script type="text/javascript" src="../../../assets/jquery-3.4.1.slim.min.js">
+
+    </script>
 </body>
+
 </html>
